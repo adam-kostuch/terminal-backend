@@ -23,7 +23,6 @@ module.exports = {
       },
     ],
     "arrow-spacing": "error",
-    "no-console": "off",
     "no-fallthrough": "off",
     "no-multi-assign": "error",
     "no-use-before-define": "off",
