@@ -1,0 +1,47 @@
+GET http://localhost:3000/users/
+
+###
+
+POST http://localhost:3000/users/login
+Content-Type: application/json
+
+{
+  "email": "adam@mail.com",
+  "password": "StrongPassword123!"
+}
+
+###
+
+POST http://localhost:3000/users/register
+Content-Type: application/json
+
+{
+  "firstName": "Adam",
+  "lastName": "Kostuch",
+  "email": "adam@mail.com",
+  "password": "StrongPassword123!",
+  "role": "Admin"
+}
+
+###
+
+POST http://localhost:3000/users/delete
+Content-Type: application/json
+
+{
+  "email": "daisyk@mail.com"
+}
+
+###
+
+POST http://localhost:3000/users/update
+Content-Type: application/json
+
+{
+  "filter": "daisy@mail.com",
+  "firstName": "Adam",
+  "lastName": "Kostuch",
+  "email": "adam@mail.com",
+  "password": "StrongPassword123!",
+  "role": "Admin"
+}
