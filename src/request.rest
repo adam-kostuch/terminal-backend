@@ -25,7 +25,7 @@ Content-Type: application/json
 
 ###
 
-POST http://localhost:3000/users/delete
+DELETE http://localhost:3000/users/delete
 Content-Type: application/json
 
 {
@@ -34,7 +34,7 @@ Content-Type: application/json
 
 ###
 
-POST http://localhost:3000/users/update
+PUT http://localhost:3000/users/update
 Content-Type: application/json
 
 {
@@ -44,4 +44,50 @@ Content-Type: application/json
   "email": "adam@mail.com",
   "password": "StrongPassword123!",
   "role": "Admin"
+}
+
+###
+
+GET http://localhost:3000/flight/
+
+###
+
+POST http://localhost:3000/flight/add
+Content-Type: application/json
+
+{
+  "flightId": "WW154",
+  "status": "Boarding",
+  "departure": "Cracow",
+  "arrival": "Warsow",
+  "departureShortcut": "KRK",
+  "arrivalShortcut": "WAW",
+  "departureDate": "11/07/2021 17:50",
+  "arrivalDate": "11/07/2021 21:00"
+}
+
+###
+
+PUT http://localhost:3000/flight/update
+Content-Type: application/json
+
+{
+  "filter": "WW154",
+  "flightId": "WAW154",
+  "status": "Boarding",
+  "departure": "Cracow",
+  "arrival": "Warsow",
+  "departureShortcut": "KRK",
+  "arrivalShortcut": "WAW",
+  "departureDate": "11/07/2021 17:50",
+  "arrivalDate": "11/07/2021 21:00"
+}
+
+###
+
+DELETE http://localhost:3000/flight/delete
+Content-Type: application/json
+
+{
+  "flightId": "WAW154"
 }

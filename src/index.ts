@@ -1,7 +1,7 @@
 import * as express from "express"
 import { Application, Request, Response, NextFunction } from "express"
 import { connectDB } from "../db/config"
-import { UserRouter } from "./routes"
+import { FlightRouter, UserRouter } from "./routes"
 import "../env/config"
 
 connectDB()
@@ -10,25 +10,22 @@ const port = process.env.PORT || 3000
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
-app.use(async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+app.use(async (_req: Request, res: Response, next: NextFunction): Promise<void> => {
   res.header("Access-Control-Allow-Origin", "*")
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization")
-  if (req.method === "OPTIONS") {
-    res.header("Access-Control-Allow-Methods", "PUT, POST, PATCH, DELETE, GET")
-  }
+  res.header("Access-Control-Allow-Methods", "PUT, POST, PATCH, DELETE, GET")
   next()
 })
 
 app.use("/users", UserRouter)
+app.use("/flight", FlightRouter)
 
 app.get("/", async (_req: Request, res: Response): Promise<Response> => {
   return res.status(200).send("Hello World")
 })
 
 try {
-  app.listen(port, (): void => {
-    console.log(`Connected successfully on port ${port}`)
-  })
+  app.listen(port, (): void => console.log(`Connected successfully on port ${port}`))
 } catch (error) {
   console.error(`Error occured: ${error.message}`)
 }
