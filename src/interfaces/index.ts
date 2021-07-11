@@ -1,3 +1,4 @@
+import IFlight from "./Flight.interface"
 import IUser from "./User.interface"
 
-export { IUser }
+export type { IFlight, IUser }

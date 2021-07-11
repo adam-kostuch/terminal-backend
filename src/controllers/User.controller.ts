@@ -14,17 +14,10 @@ const GetAll = async (_req: Request, res: Response): Promise<Response> => {
 }
 
 const Register = async (req: Request, res: Response): Promise<Response> => {
+  const { firstName, lastName, email, password, role } = req.body
   const salt = await bcrypt.genSalt()
-  const hashedPassword = await bcrypt.hash(req.body.password, salt)
-
-  const user = new User({
-    _id: new mongoose.Types.ObjectId(),
-    firstName: req.body.firstName,
-    lastName: req.body.lastName,
-    email: req.body.email,
-    password: hashedPassword,
-    role: req.body.role,
-  })
+  const hashedPassword = await bcrypt.hash(password, salt)
+  const user = new User({ _id: new mongoose.Types.ObjectId(), firstName, lastName, email, password: hashedPassword, role })
 
   try {
     return user
@@ -32,7 +25,7 @@ const Register = async (req: Request, res: Response): Promise<Response> => {
       .then((item: IUser) => res.status(200).send(`Item with name ${item.firstName} succesfully saved to database`))
       .catch((err: Error) => res.status(400).send(`Unable to save item ${err}`))
   } catch (error) {
-    return res.status(500).send()
+    return res.status(500).send({ error })
   }
 }
 

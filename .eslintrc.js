@@ -5,11 +5,11 @@ module.exports = {
   env: {
     es6: true,
     jest: true,
-    node: true,
+    node: true
   },
   parserOptions: {
     ecmaVersion: 2020,
-    sourceType: "module",
+    sourceType: "module"
   },
   plugins: ["@typescript-eslint", "import"],
   rules: {
@@ -18,9 +18,9 @@ module.exports = {
       {
         "newlines-between": "never",
         alphabetize: {
-          order: "asc",
-        },
-      },
+          order: "asc"
+        }
+      }
     ],
     "arrow-spacing": "error",
     "no-fallthrough": "off",
@@ -28,14 +28,15 @@ module.exports = {
     "no-use-before-define": "off",
     "no-param-reassign": "error",
     "prefer-spread": "error",
+    "comma-dangle": ["error", "never"],
     semi: ["error", "never"],
     quotes: ["error", "double"],
     "@typescript-eslint/explicit-function-return-type": [
       "error",
       {
-        allowExpressions: true,
-      },
+        allowExpressions: true
+      }
     ],
-    "@typescript-eslint/no-use-before-define": ["error"],
-  },
+    "@typescript-eslint/no-use-before-define": ["error"]
+  }
 }
