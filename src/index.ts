@@ -17,7 +17,7 @@ app.use(async (_req: Request, res: Response, next: NextFunction): Promise<void> 
   next()
 })
 
-app.use("/users", UserRouter)
+app.use("/user", UserRouter)
 app.use("/flight", FlightRouter)
 
 app.get("/", async (_req: Request, res: Response): Promise<Response> => {
