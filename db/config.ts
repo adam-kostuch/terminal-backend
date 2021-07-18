@@ -9,7 +9,7 @@ export const connectDB = async (): Promise<void> => {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useFindAndModify: false,
-      useCreateIndex: true,
+      useCreateIndex: true
     })
 
     console.log("Successfully connected database!")

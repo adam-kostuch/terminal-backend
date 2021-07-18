@@ -1,7 +1,7 @@
 import * as express from "express"
 import { Application, Request, Response, NextFunction } from "express"
 import { connectDB } from "../db/config"
-import { FlightRouter, UserRouter } from "./routes"
+import { UserRouter } from "./routes"
 import "../env/config"
 
 connectDB()
@@ -18,7 +18,6 @@ app.use(async (_req: Request, res: Response, next: NextFunction): Promise<void> 
 })
 
 app.use("/user", UserRouter)
-app.use("/flight", FlightRouter)
 
 app.get("/", async (_req: Request, res: Response): Promise<Response> => {
   return res.status(200).send("Hello World")
